@@ -9,6 +9,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="FraudShield">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<script src="config.js"></script>
 <style>
   :root{
     --ink:#0E2A2C;
@@ -301,7 +304,7 @@
         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
       </svg>
     </span> 
-    Citizen Fraud Shield
+    CyberKavach
   </div>
   <nav class="tabs">
     <button data-tab="quick" class="active">Quick Check</button>
@@ -371,7 +374,7 @@
 </main>
 
 <footer>
-  Citizen Fraud Shield — demo build. Not affiliated with NCRB/cybercrime.gov.in.
+  CyberKavach — demo build. Not a substitute for official law enforcement.
   For real complaints, always confirm at <a href="https://cybercrime.gov.in" target="_blank">cybercrime.gov.in</a> or call 1930.
 </footer>
 
@@ -662,7 +665,7 @@ if (installBtn) {
 }
 
 window.addEventListener("appinstalled", () => {
-    console.log("Citizen Fraud Shield installed.");
+    console.log("CyberKavach installed.");
     deferredPrompt = null;
 
     if (installBtn)

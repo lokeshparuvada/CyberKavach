@@ -16,7 +16,7 @@
 ```bash
 cd citizen_cyber_kavach
 pip install -r requirements.txt
-uvicorn channels.mobile_api:app --reload --port 5003
+python -m uvicorn channels.mobile_api:app --reload --port 5003
 ```
 
 Confirm it's up: open `http://localhost:5003/health` — should show
