@@ -269,7 +269,7 @@ PWABuilder generates:
 - iOS project
 
 ready for publishing.
-**Authors**-Team FOUR
+- **Authors**-Team FOUR
 - Lokesh Naidu Paruvada
 - Golconda Sai Rithvik
 - Aangara Satya Sesha Sri Chaitanya
