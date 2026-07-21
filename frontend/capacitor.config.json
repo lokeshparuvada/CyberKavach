@@ -1,7 +1,7 @@
 {
   "appId": "com.cyberkavach.app",
   "appName": "Cyber Kavach",
-  "webDir": ".",
+  "webDir": "www",
   "bundledWebRuntime": false,
   "server": {
     "androidScheme": "https"
