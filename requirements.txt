@@ -1,0 +1,22 @@
+# Core: no dependencies required to run demo_cli.py / test_scripted_demo.py
+# (risk_engine, conversation_engine, and translator use only the stdlib)
+
+# Mobile app REST API (channels/mobile_api.py)
+fastapi>=0.110
+uvicorn>=0.29
+pydantic>=2.0
+
+# WhatsApp webhook (channels/whatsapp_channel.py)
+flask>=3.0
+
+# IVR webhook (channels/ivr_channel.py) -- also uses flask, already listed above
+
+# Optional, for production:
+# twilio            # if sending outbound WhatsApp/voice via Twilio SDK
+# redis             # session store instead of in-memory dict
+# Machine Learning
+scikit-learn>=1.5
+joblib>=1.4
+
+# PDF generation
+reportlab>=4.2
