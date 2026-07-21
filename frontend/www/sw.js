@@ -4,7 +4,7 @@
 // always go to the network since they need live data -- only the static
 // shell is cached.
 
-const CACHE_NAME = "fraud-shield-shell-v2";
+const CACHE_NAME = "fraud-shield-shell-v3";
 const SHELL_FILES = [
   "./index.html",
   "./manifest.json",
