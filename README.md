@@ -35,7 +35,7 @@ language coverage — only the transport differs.
 ## Project layout
 
 ```
-citizen_fraud_shield/
+cyberkavach/
 ├── core/
 │   ├── risk_engine.py          # rule-based fraud scorer (12 signal categories)
 │   └── conversation_engine.py  # channel-agnostic state machine
