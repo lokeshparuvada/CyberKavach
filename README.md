@@ -1,4 +1,4 @@
-# Citizen Fraud Shield (Multi-channel)
+# Cyber Kavach (Multi-channel)
 
 A conversational AI system that walks citizens through real-time fraud risk
 assessment for suspicious calls, messages, or payment requests — with
