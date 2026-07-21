@@ -8,4 +8,4 @@
 // - Real deployment / APK build (backend hosted somewhere with HTTPS):
 //     window.API_BASE = "https://your-backend-domain.com";
 
-window.API_BASE = "http://localhost:5003";
+window.API_BASE = "https://cyberkavach-eu5w.onrender.com/";
