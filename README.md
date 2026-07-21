@@ -126,6 +126,42 @@ works over IVR with no network dependency for the built-in phrases).
 (e.g. Bhashini, purpose-built for Indian languages) for free-text the
 citizen types themselves, such as a complaint narrative.
 
+# Fonts needed here
+
+`reporting/pdf_generator.py` looks for these exact filenames in this
+folder to render non-Latin scripts correctly in generated complaint
+PDFs. Without them, it falls back to ASCII-safe Helvetica and logs a
+warning — nothing crashes, but Tamil/Hindi/etc. text gets stripped.
+
+| Language  | Required filename(s) |
+|-----------|------------------------|
+| Tamil     | `NotoSansTamil-Regular.ttf`, `NotoSansTamil-Bold.ttf` |
+| Hindi     | `NotoSansDevanagari-Regular.ttf` |
+| Telugu    | `NotoSansTelugu-Regular.ttf` |
+| Kannada   | `NotoSansKannada-Regular.ttf` |
+| Malayalam | `NotoSansMalayalam-Regular.ttf` |
+| Bengali   | `NotoSansBengali-Regular.ttf` |
+
+## Option A — automatic (recommended)
+
+```bash
+cd reporting/fonts
+python download_fonts.py          # all 6 languages
+python download_fonts.py ta hi    # just Tamil + Hindi
+```
+
+## Option B — manual
+
+1. Go to [fonts.google.com/noto](https://fonts.google.com/noto), search
+   the script name (e.g. "Noto Sans Tamil"), click it, **Download family**.
+2. Unzip, grab the **static** `Regular` (and `Bold`) `.ttf` — not the
+   variable-font one.
+3. Rename to match the table above exactly (case-sensitive) and drop
+   into this folder.
+
+Either way, no code changes needed — `pdf_generator.py` re-checks this
+folder every time it builds a PDF.
+
 ## NCRB reporting (`reporting/ncrb_reporter.py`)
 
 Builds a complete complaint packet shaped like the National Cyber Crime

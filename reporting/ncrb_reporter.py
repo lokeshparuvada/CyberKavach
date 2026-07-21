@@ -82,7 +82,7 @@ class NCRBReporter:
                   risk_score: int, risk_band: str, category: str = "Financial Fraud",
                   subcategory: str = "unspecified", **citizen_fields) -> ComplaintDraft:
         draft = ComplaintDraft(
-            ref_id=f"CFS-{uuid.uuid4().hex[:10].upper()}",
+            ref_id=f"CK-{uuid.uuid4().hex[:10].upper()}",
             created_at=datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z",
             channel=channel,
             language=language,

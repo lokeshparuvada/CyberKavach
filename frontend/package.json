@@ -1,0 +1,16 @@
+{
+  "name": "cyber-kavach",
+  "version": "1.0.0",
+  "description": "Cyber Kavach - citizen fraud protection PWA",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "android": "npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/core": "^6.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.0.0",
+    "@capacitor/android": "^6.0.0"
+  }
+}

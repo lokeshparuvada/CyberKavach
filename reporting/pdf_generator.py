@@ -605,7 +605,7 @@ def risk_banner(score, band):
 def generate_complaint_pdf(draft: ComplaintDraft, result: dict) -> Path:
     """Build the PDF and return its filesystem path."""
     styles = _styles()
-    ref_id = getattr(draft, "ref_id", "CFS-UNKNOWN")
+    ref_id = getattr(draft, "ref_id", "CK-UNKNOWN")
     out_path = PDF_OUTPUT_DIR / f"{ref_id}.pdf"
 
     doc = SimpleDocTemplate(
@@ -805,7 +805,7 @@ def generate_complaint_pdf(draft: ComplaintDraft, result: dict) -> Path:
                 styles["ReportBody"],
             ),
             Paragraph(
-                "<b>Disclaimer:</b> Citizen Fraud Shield is an automated guidance framework. "
+                "<b>Disclaimer:</b> Cyber Kavach is an automated guidance framework. "
                 "This document compiles user-submitted information and AI metrics for formal submission "
                 "and does not replace an officially filed FIR or police station acknowledgement.",
                 styles["ReportSmall"],

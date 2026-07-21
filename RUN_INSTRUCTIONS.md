@@ -14,7 +14,7 @@
 ## 1. Start the backend
 
 ```bash
-cd citizen_fraud_shield
+cd citizen_cyber_kavach
 pip install -r requirements.txt
 uvicorn channels.mobile_api:app --reload --port 5003
 ```
@@ -29,7 +29,7 @@ Just open the file directly, or serve it (recommended, avoids some browser
 file:// quirks):
 
 ```bash
-cd citizen_fraud_shield/frontend
+cd citizen_cyber_kavach/frontend
 python3 -m http.server 8080
 ```
 
@@ -77,7 +77,7 @@ backend URL before you drop the frontend folder onto Netlify.
    NCRB reporting, three channels, one brain. Point at the architecture
    diagram in `README.md` if asked.
 
-## 4b. Tamil / regional-script PDF rendering — one manual step
+## 4b. Tamil / regional-script PDF rendering — one setup step
 
 `reporting/pdf_generator.py` already contains full Unicode font-loading
 logic (registers a TTF with ReportLab, falls back to a Pillow+RAQM
@@ -86,18 +86,21 @@ degrades to ASCII-safe Helvetica with a logged warning if no font is
 found). The actual font **files** aren't bundled in this zip (licensing/
 size), so on a fresh checkout you'll see a console warning and Tamil/
 Hindi/etc. text will fall back to stripped ASCII in generated PDFs until
-you add them:
+you add them. Two ways to fix that — see `reporting/fonts/README.md`
+for full detail:
 
 ```bash
-mkdir -p reporting/fonts
-# Download (e.g. from fonts.google.com/noto) and drop in:
-#   NotoSansTamil-Regular.ttf
-#   NotoSansDevanagari-Regular.ttf
-#   ...one Regular (and ideally Bold) TTF per language you need
+# Option A — automatic (needs internet access; run once)
+cd reporting/fonts
+python download_fonts.py
+
+# Option B — manual: download from fonts.google.com/noto and drop the
+# static Regular/Bold .ttf files (renamed to match reporting/fonts/README.md)
+# into reporting/fonts/ yourself.
 ```
 
-Once a matching TTF is in `reporting/fonts/`, the PDF generator picks it
-up automatically — no code changes needed.
+Once matching TTFs are in `reporting/fonts/`, the PDF generator picks
+them up automatically on the next run — no code changes needed.
 
 ## 5. If something breaks 20 minutes before the demo
 - `/health` returns nothing → backend isn't running or wrong port. Restart
@@ -154,38 +157,22 @@ Once loaded once, the UI works offline.
 
 ## Play Store
 
-Recommended workflow
+**Route 1 — PWABuilder (no local Android setup needed):**
+Deploy website → [pwabuilder.com](https://www.pwabuilder.com) → paste
+URL → generate Android App Bundle (.aab) → upload to Google Play
+Console.
 
-Citizen Fraud Shield
+**Route 2 — Capacitor (more control):** `frontend/capacitor.config.json`
+and `frontend/package.json` are already set up — appId
+`com.cyberkavach.app`, appName `Cyber Kavach`. From `frontend/`:
 
-↓
+```bash
+npm install
+npx cap add android
+npx cap copy
+npx cap open android
+```
 
-Deploy website
-
-↓
-
-PWABuilder
-
-↓
-
-Generate Android App Bundle (.aab)
-
-↓
-
-Upload to Google Play Console
-
-or
-
-Capacitor
-
-↓
-
-Android Studio
-
-↓
-
-Generate Signed Bundle
-
-↓
-
-Play Store
+This opens Android Studio → **Build → Generate Signed Bundle / APK** →
+follow the signing wizard → upload the resulting `.aab` to Google Play
+Console.
